@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receipt Management</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            padding: 20px;
+            background-color: #f7f7f7;
+        }
+        .upload-container, .database-section {
+            background-color: #fff;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        h1, h2 {
+            margin-bottom: 20px;
+        }
+        .file-upload {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div style="
+    height: 110px;
+    background-color: cadetblue;
+    text-align: center;
+    font-size: xxx-large;
+    color: azure;
+    margin-bottom: 20px;">Optical Character Recognition</div>
+    <div class="container">
+        <div class="upload-container">
+            <h2 class="text-center">Upload a Receipt Image for OCR</h2>
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <div class="form-group file-upload">
+                    <input type="file" name="file" accept="image/*" class="form-control-file" required>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Upload</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="database-section">
+            <h2 class="text-center">Stored Receipt Records</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Date</th>
+                        <th>Total</th>
+                        <th>Receipt Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for receipt in receipts %}
+                    <tr>
+                        <td>{{ receipt.ID }}</td>
+                        <td>{{ receipt.Name }}</td>
+                        <td>{{ receipt.Date }}</td>
+                        <td>{{ receipt.Total }}</td>
+                        <td>{{ receipt.ReceiptNumber }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    
+</body>
+</html>
+
+

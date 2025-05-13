@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receipt OCR Result</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+        .result-container {
+            background-color: #f8f9fa;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div style="
+    height: 110px;
+    background-color: cadetblue;
+    text-align: center;
+    font-size: xxx-large;
+    color: azure;
+    margin-bottom: 20px;">Optical Character Recognition</div>
+    <div class="container">
+        <h1 class="text-center">Extracted Receipt Information</h1>
+        <div class="result-container">
+            <ul class="list-group">
+                {% for key, value in data.items() %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <strong>{{ key }}:</strong>
+                        <span>{{ value }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="text-center mt-4">
+            <a href="/" class="btn btn-primary">Upload Another Receipt</a>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
